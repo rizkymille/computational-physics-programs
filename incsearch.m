@@ -13,11 +13,11 @@ x = linspace(xmin, xmax);
 f = func(x);
 num_brackets = 0;
 bracket = [];
-for i = 1:length(cd) - 1
+for i = 1:length(x) - 1
     if sign(f(i)) ~= sign(f(i+1))
         num_brackets = num_brackets + 1;
-        bracket(num_brackets, 1) = f(i);
-        bracket(num_brackets, 2) = f(i+1);
+        bracket(num_brackets, 1) = x(i);
+        bracket(num_brackets, 2) = x(i+1);
     end
 end
 
