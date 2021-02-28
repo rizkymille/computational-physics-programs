@@ -1,3 +1,7 @@
+% cara penggunaan:
+% ketik pada command window MATLAB: 'bisection(@(x) fungsi, xlow, xup,
+% stop_criterion)
+% contoh: bisection(@(x) x^2, -1, 1, 2)
 function xroot = bisection(func, xlow, xup, stop_criterion)
 
 if nargin < 4

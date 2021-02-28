@@ -1,3 +1,6 @@
+% cara penggunaan:
+% ketik pada command window MATLAB: 'graphic(@(x) fungsi, xmin, xmax)
+% contoh: bisection(@(x) x^2, -1, 1)
 function yroot = graphic(func, xmin, xmax)
 
 if nargin < 3

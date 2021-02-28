@@ -1,3 +1,7 @@
+% cara penggunaan:
+% ketik pada command window MATLAB: 'false_position(@(x) fungsi, xlow, xup,
+% stop_criterion)
+% contoh: false_position(@(x) x^2, -1, 1, 2)
 function xroot = false_position(func, xlow, xup, stop_criterion)
 
 if nargin < 4

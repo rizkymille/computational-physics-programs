@@ -1,3 +1,6 @@
+% cara penggunaan:
+% ketik pada command window MATLAB: 'incsearch(@(x) fungsi, xmin, xmax)
+% contoh: incsearch(@(x) x^2, -1, 1)
 function bracket = incsearch(func, xmin, xmax)
 
 if nargin < 3
