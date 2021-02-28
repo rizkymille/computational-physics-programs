@@ -12,7 +12,6 @@ function xroot = bisection(func, xlow, xup, stop_criterion)
 % output pesan error ketika argumen input fungsi kurang atau lebih
 if nargin < 4 % cek apakah jumlah argumen kurang dari 4
     error('Argumen kurang')
-elseif nargin > 4
 elseif nargin > 4 % cek apakah jumlah argumen lebih dari 4
     error('Argumen terlalu banyak')
 end
