@@ -20,9 +20,9 @@ end
 
 pf = perturb_frac; % penyingkatan nama variabel, untuk memudahkan penulisan
 iter = 0; % inisialisasi jumlah pengulangan
-err_abs = 0; % inisialisasi nilai error
+err_abs = 100; % inisialisasi nilai error
 
-while iter < max_iteration && (err_abs == 0 || err_abs > stop_criterion)
+while iter < max_iteration && err_abs > stop_criterion
     iter = iter + 1; % naikkan jumlah iterasi setiap pengulangan
     new_xr = xr - pf*xr*func(xr)/(func(xr + pf*xr)-func(xr)); % naikkan jumlah iterasi setiap pengulangan
     err_abs = abs((new_xr - xr)/new_xr) *100; % kalkulasi kesalahan absolut
