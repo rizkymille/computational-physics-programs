@@ -27,10 +27,10 @@ elseif nargin > 5 % cek apakah jumlah argumen lebih dari 3
 end
 
 iter = 0; % inisialisasi jumlah pengulangan
-err_abs = 0; % inisialisasi nilai error
+err_abs = 100; % inisialisasi nilai error
 %// dfunc = diff(func, x);
 
-while iter < max_iteration && (err_abs == 0 || err_abs > stop_criterion)
+while iter < max_iteration && err_abs > stop_criterion
     % ulang perhitungan ketika iterasi belum mencapai maksimum, dan error
     % masih sama dengan nol atau masih diatas kriteria penghentian
     iter = iter + 1; % naikkan jumlah iterasi setiap pengulangan
