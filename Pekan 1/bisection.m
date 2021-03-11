@@ -19,10 +19,10 @@ end
 % inisialisasi perhitungan awal
 flow = func(xlow); fup = func(xup); % hitung hasil fungsi nilai interval minimum dan maksimum
 xroot = (xlow + xup)/2; % hitung nilai akar x dari antara kedua interval x
-err_abs = 0; % inisialisasi error absolut
+err_abs = 100; % inisialisasi error absolut
 
 % perhitungan pengulangan
-while err_abs == 0 || err_abs >= stop_criterion % jalankan pengulangan jika error sama dengan nol atau lebih dari sama dengan kecukupan error
+while err_abs >= stop_criterion % jalankan pengulangan jika error sama dengan nol atau lebih dari sama dengan kecukupan error
     xroot_old = xroot; % simpan nilai x lama
     xroot = (xlow + xup)/2; % hitung nilai x tengah dari interval
     
