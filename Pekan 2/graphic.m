@@ -23,6 +23,7 @@ for i = 1:root_num % ulang permintaan input dengan iterasi dari jumlah akar
     xroot = input('Masukkan koordinat akar x dari grafik: '); % minta input nilai x untuk pencarian akar nilai y
     roots(i, 1) = xroot; % masukkan akar nilai x, masukkan dalam kolom 1
     roots(i, 2) = func(xroot); % hitung akar nilai y, masukkan dalam kolom 2
+end
     
 end
 
