@@ -16,7 +16,6 @@ end
 % substitusi kembali
 result = zeros(n-1,1); % definisikan matriks solusi persamaan sebagai matriks berisi 0 dengan ukuran banyaknya kolom koefisien
 result(n-1) = aug_matrix(n-1,n)/aug_matrix(n-1,n-1); % masukkan variabel yang telah mempunyai solusi (paling bawah) kedalam matriks solusi
-disp(result)
 for i = n-1:-1:1 % pengulangan substitusi diurutkan dari matriks paling bawah ke atas, dengan indeks i
     result(i) = (aug_matrix(i,n)-aug_matrix(i,i+1:n-1)*result(i+1:n-1))/aug_matrix(i,i); % substitusi matriks
 end
