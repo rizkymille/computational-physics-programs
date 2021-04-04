@@ -22,12 +22,16 @@ xroot = (xlow + xup)/2; % hitung nilai akar x dari antara kedua interval x
 err_abs = 100; % inisialisasi error absolut
 
 % perhitungan pengulangan
+iter = 0;
 while err_abs >= stop_criterion % jalankan pengulangan jika error sama dengan nol atau lebih dari sama dengan kecukupan error
+    iter = iter + 1;
     xroot_old = xroot; % simpan nilai x lama
     xroot = (xlow + xup)/2; % hitung nilai x tengah dari interval
     
-    err_abs = abs((xroot-xroot_old)/xroot)*100; % hitung error absolut
-    fprintf('Kesalahan absolut: %f\n', err_abs) % tampakkan nilai error
+    if iter > 1
+        err_abs = abs((xroot-xroot_old)/xroot)*100; % hitung error absolut
+        fprintf('Kesalahan absolut: %f\n', err_abs) % tampakkan nilai error
+    end
     
     if flow*fup < 0 % jika perkalian hasil fungsi interval maksimum dan minimum kurang dari nol
         xup = xroot; % simpan nilai x menjadi interval maksimum
