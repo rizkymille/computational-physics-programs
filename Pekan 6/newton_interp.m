@@ -12,24 +12,35 @@ if length(y_points) ~= length(x_points) % jika jumlah data x dan y tidak sama
 end
 
 point_len = length(x_points); % simpan panjang data sebagai variabel n
-b = zeros(point_len,point_len); % buat matriks ukuran panjang data kali panjang data
-b(:,1) = y_points(:); % masukkan variabel y pada kolom pertama b
+div_diff = zeros(point_len, point_len); % buat matriks 'divided difference' sebesar panjang data kali panjang data
+div_diff(:,1) = y_points(:); % masukkan variabel y pada kolom pertama b
 
+% perhitungan koefisien
 for j = 2:point_len % ulang dari 2 sampai panjang data
     for i = 1:point_len-j+1 % ulang dari 1 sampai panjang data dikurang indeks j ditambah 1
-        b(i,j) = (b(i+1,j-1)-b(i,j-1))/(x_points(i+j-1)-x_points(i)); % kalkulasi variabel dan koefisien polinomial dari setiap orde
+        div_diff(i,j) = (div_diff(i+1,j-1)-div_diff(i,j-1))/(x_points(i+j-1)-x_points(i)); % kalkulasi variabel dan koefisien polinomial dari setiap orde
     end
 end
 
-xt = 1; % inisialisasi nilai xt
-y_val = b(1,1); % nilai y adalah elemen baris pertama dan kolom pertama pada matriks b
+% perhitungan variabel
+xt = 1; % inisialisasi perhitungan variabel (x-xi)
+y_val = div_diff(1,1); % nilai y adalah elemen baris pertama dan kolom pertama pada matriks 'divided difference'
 
-for j = 1:point_len-1 % ulang untuk setiap orde
+% gabungkan koefisien dengan variabel
+for j = 1:point_len-1 % ulang untuk setiap orde (jumlah data - 1)
     xt = xt*(x_val-x_points(j)); % kalkulasi nilai x setiap orde
-    y_val = y_val+b(1,j+1)*xt; % kalkulasi nilai y setiap orde
+    y_val = y_val+div_diff(1,j+1)*xt; % kalkulasi nilai y setiap orde
 end
 
 end
+
+% Problem 17.1
+% x = [0 1.8 5 6 8.2 9.2 12]
+% y = [26 16.415 5.375 3.5 2.015 2.54 8]
+% Nilai x yang dicari y-nya: x = 3.5
+% poly_curve_fit([0 1.8 5 6 8.2 9.2 12],[26 16.415 5.375 3.5 2.015 2.54 8], 3.5)
+% Hasil: 
+% x = 3.5, y = 9.5938
 
 % Problem 17.4(a)
 % Pemilihan sekuens titik: karena x = 3.4 berada diantara x = 3 dan x = 4, maka

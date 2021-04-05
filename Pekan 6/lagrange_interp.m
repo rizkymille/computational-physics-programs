@@ -12,18 +12,26 @@ if length(y_points) ~= length(x_points) % jika jumlah data x dan y tidak sama
 end
 
 point_len = length(x_points); % simpan panjang data sebagai variabel n
-s = 0; % inisiasi variabel hasil penjumlahan
+sum = 0; % inisiasi variabel hasil penjumlahan
 for i = 1:point_len % ulang dari 1 sampai panjang data
     for j = 1:point_len % ulang dari 1 sampai panjang data
         if i ~= j % indeks variabel i dan j harus berbeda untuk dikalkulasi
             y_points(i) = y_points(i)*(x_val-x_points(j))/(x_points(i)-x_points(j)); % kalkulasi variabel dan koefisien polinomial dari setiap orde
         end
     end
-    s = s+y_points(i); % jumlahkan seluruh variabel polinomial dari sebelumnya secara rekursi
+    sum = sum + y_points(i); % jumlahkan seluruh variabel polinomial dari sebelumnya secara rekursi
 end
 
-y_val = s; % hasil akhirnya merupakan nilai y hasil interpolasi
+y_val = sum; % hasil akhirnya merupakan nilai y hasil interpolasi
 end
+
+% Problem 17.1
+% x = [0 1.8 5 6 8.2 9.2 12]
+% y = [26 16.415 5.375 3.5 2.015 2.54 8]
+% Nilai x yang dicari y-nya: x = 3.5
+% poly_curve_fit([0 1.8 5 6 8.2 9.2 12],[26 16.415 5.375 3.5 2.015 2.54 8], 3.5)
+% Hasil: 
+% x = 3.5, y = 9.5938
 
 % Problem 17.4(a)
 % Pemilihan sekuens titik: karena x = 3.4 berada diantara x = 3 dan x = 4, maka

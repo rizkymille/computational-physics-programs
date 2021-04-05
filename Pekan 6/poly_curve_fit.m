@@ -16,8 +16,6 @@ x_graph = linspace(min(x_points),max(x_points)); % definisikan koordinat x grafi
 y_graph = polyval(poly_coeff,x_graph); % kalkulasi hasil polinomial y untuk grafik dengan koefisien yang telah ditemukan dengan nilai x grafik
 y_val = polyval(poly_coeff, x_val); % kalkulasi hasil polinomial y untuk interpolasi dengan koefisien yang telah ditemukan dengan nilai x yang dicari
 plot(x_points, y_points, 'o', x_graph, y_graph) % buat grafik kurva dan titik titiknya
-% Pembuktian: 
-% disp(polyval(poly_coeff, x_points));
 end
 
 % Problem 17.1
@@ -27,4 +25,3 @@ end
 % poly_curve_fit([0 1.8 5 6 8.2 9.2 12],[26 16.415 5.375 3.5 2.015 2.54 8], 3.5)
 % Hasil: 
 % x = 3.5, y = 9.5937
-% Pembuktian: Lihat line 20 dan 21
