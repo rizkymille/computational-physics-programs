@@ -33,9 +33,9 @@ while err_abs >= stop_criterion % jalankan pengulangan jika error sama dengan no
         fprintf('Kesalahan absolut: %f\n', err_abs) % tampakkan nilai error
     end
     
-    if flow*fup < 0 % jika perkalian hasil fungsi interval maksimum dan minimum kurang dari nol
+    if flow*func(xroot) < 0 % jika perkalian hasil fungsi interval maksimum dan minimum kurang dari nol
         xup = xroot; % simpan nilai x menjadi interval maksimum
-    elseif flow*fup > 0 % jika perkalian hasil fungsi interval maksimum dan minimum lebih dari nol
+    elseif func(xroot)*fup > 0 % jika perkalian hasil fungsi interval maksimum dan minimum lebih dari nol
         xlow = xroot; % simpan nilai x menjadi interval minimum
     else % jika perkalian hasil fungsi interval maksimum dan minimum sama dengan nol
         break % hentikan pengulangan
