@@ -36,14 +36,14 @@ while err_abs >= stop_criterion % jalankan pengulangan jika error sama dengan no
         fprintf('Kesalahan absolut: %f\n', err_abs) % tampakkan nilai error
     end
     
-    if flow*fup < 0 % jika perkalian hasil fungsi interval maksimum dan minimum kurang dari nol
+    if flow*func(xroot) < 0 % jika perkalian hasil fungsi interval maksimum dan minimum kurang dari nol
         xup = xroot; % simpan nilai x menjadi interval maksimum
         fup = func(xup); % simpan nilai fungsi dari xup terbaru menjadi interval fungsi maksimum
         il = il + 1; % naikkan indeks interval bawah
         if il >= 2 % jika indeks interval bawah lebih dari sama dengan 2
            flow = flow/2; % bagi 2 nilai fungsi dari interval minimum
         end
-    elseif flow*fup > 0 % jika perkalian hasil fungsi interval maksimum dan minimum lebih dari nol
+    elseif func(xroot)*fup > 0 % jika perkalian hasil fungsi interval maksimum dan minimum lebih dari nol
         xlow = xroot; % simpan nilai x menjadi interval minimum
         flow = func(xlow); % simpan nilai fungsi dari xlow terbaru menjadi interval fungsi minimum
         iu = iu + 1; % naikkan indeks interval atas
