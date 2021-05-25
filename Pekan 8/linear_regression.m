@@ -1,36 +1,31 @@
 function [grad, intercept, r2, stderror_estimate] = linear_regression(x,y)
-% fungsi untuk regresi linier pada data dengan metode least square
-% input:
-% x = variabel independen
-% y = variabel dependen
-% output:
-% grad = nilai gradien/kemiringan
-% intercept = nilai konstanta intercept
-% r2 = koefisien determinasi/korelasi
-% sterror_estimate = estimasi standar error
-n = length(x); % definisikan banyak data
+
+n = length(x)
 
 if length(y)~=n, error('Jumlah data x dan y haruslah sama'); end % kasus data asimetris
 
 % penjumlahan variabel untuk kalkulasi
-sum_x = sum(x); sum_y = sum(y);
-sum_x_square = sum(x.*x); sum_x_y = sum(x.*y); sum_y_square = sum(y.*y);
+sum_x = sum(x)
+sum_y = sum(y)
+sum_x_square = sum(x.*x)
+sum_y_square = sum(y.*y)
+sum_x_y = sum(x.*y)
 
-% hitung gradien
-grad = (n*sum_x_y-sum_x*sum_y)/(n*sum_x_square-sum_x^2);
-% hitung intercept/konstanta
-intercept = sum_y/n-grad*sum_x/n;
-% hitung determinasi/korelasi
-r2 = ((n*sum_x_y-sum_x*sum_y)/sqrt(n*sum_x_square-sum_x^2)/sqrt(n*sum_y_square-sum_y^2))^2;
-% hitung jumlah kuadrat
-sum_of_squares = sum((y-intercept-grad*x).^2);
-% hitung estimasi standar error
-stderror_estimate = sqrt(sum_of_squares/(n-2));
+% gradien
+grad = (n*sum_x_y-sum_x*sum_y)/(n*sum_x_square-sum_x^2)
+% intercept/konstanta
+intercept = sum_y/n-grad*sum_x/n
+% korelasi
+r2 = ((n*sum_x_y-sum_x*sum_y)/sqrt(n*sum_x_square-sum_x^2)/sqrt(n*sum_y_square-sum_y^2))^2
+% jumlah kuadrat
+sum_of_squares = sum((y-intercept-grad*x).^2)
+% estimasi standar error
+stderror_estimate = sqrt(sum_of_squares/(n-2))
 
 % pembuatan plot
-x_plot = linspace(min(x),max(x)); % definisi variabel independen plot
-y_plot = grad*x_plot+intercept; % definisi variabel dependen plot
-plot(x,y,'o',x_plot,y_plot) % lakukan plot
+x_plot = linspace(min(x),max(x));
+y_plot = grad*x_plot+intercept; 
+plot(x,y,'o',x_plot,y_plot)
 end
 
 % Problem 14.5
